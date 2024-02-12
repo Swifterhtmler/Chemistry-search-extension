@@ -4,8 +4,8 @@ chrome.commands.onCommand.addListener(function (command) {
       chrome.windows.create({
         url: popupURL,
         type: 'popup', // This should open it as a browser popup
-        width: 800,
-        height: 600,
+        width: 500,
+        height: 180,
       });
     }
   });

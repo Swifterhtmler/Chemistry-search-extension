@@ -1,19 +1,57 @@
-
 const result = document.getElementById('result');
 
-const searchField = document.getElementById('searchField');
 
-const searchButton = document.getElementById('button');
+document.addEventListener('DOMContentLoaded', function () {
+    // Set a small delay to ensure focus is applied after the DOM is fully rendered
+    setTimeout(function() {
+        document.getElementById('searchField').focus();
+    }, 100);
+});
+
+
+searchField.addEventListener('input', function () {
+    const inputValue = searchField.value.trim();
+    // console.log(inputValue); // Log the value to the console
+/*
+
+    if (periodicTable.hasOwnProperty(inputValue.toLowerCase())) {
+        const molarMass = periodicTable[inputValue.toLowerCase()];
+        result.innerHTML = `${inputValue} moolimassa on ${molarMass} g/mol`;
+    } else {
+        result.innerHTML = `${inputValue} not found`;
+    }
+
+*/
 
 
 
+let matchedElement = null;
 
-if (searchField.value === "") {
-    result.innerHTML = "The value is 23";
-      } else {
-          result.innerHTML = "Input value is not 'test'";
+// Check if the input matches the beginning of any element in the periodic table
+for (const element in periodicTable) {
+    if (element.startsWith(inputValue)) {
+        matchedElement = element;
+        break;
+    }
+}
+
+if (matchedElement) {
+    const molarMass = periodicTable[matchedElement];
+    result.innerHTML = `${matchedElement} moolimassa on: ${molarMass} g /mol`;
+
+    navigator.clipboard.writeText(molarMass.toString() + " \\frac{g}{mol} ").then(function () {
+       // console.log('Molar mass copied to clipboard:', molarMass);
+    }).catch(function (error) {
+        console.error('Clipboard write failed:', error);
+    });
+
+
+
+} else {
+    result.innerHTML = `Alkuainetta "${inputValue}" ei löytynyt`;
  }
 
+});
 
 
 

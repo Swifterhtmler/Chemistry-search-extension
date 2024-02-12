@@ -1,1 +1,2 @@
-Simple exension for chemistry lessons
+Simple extension for chemistry lessons
+
