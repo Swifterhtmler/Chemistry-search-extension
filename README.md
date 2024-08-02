@@ -1,4 +1,4 @@
-# Simple searvh popup extension for searching periodic elements and their molecule masses.
+# Simple search popup extension for searching periodic elements and their molecule masses.
 
 
 
